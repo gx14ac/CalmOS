@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "frame_buffer_config.hpp": "c",
+        "stdint.h": "c"
+    }
+}
