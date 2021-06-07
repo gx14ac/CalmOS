@@ -12,6 +12,7 @@ struct PixelColor {
  */
 int WritePixel(const FrameBufferConfig& config,
                int x, int y, const PixelColor& c) {
+  // フレームバッファ先頭から座標位置を計算する式
   const int pixel_position = config.pixels_per_scan_line * y + x;
   if (config.pixel_format == kPixelRGBResv8BitPerColor) {
     uint8_t* p = &config.frame_buffer[4 * pixel_position];

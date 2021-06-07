@@ -1,4 +1,4 @@
-## Build 
+## Build
 `cd kernel` 
 `make clean && make`
 `cd ~/.ghq/github.com/tianocore/edk2`
