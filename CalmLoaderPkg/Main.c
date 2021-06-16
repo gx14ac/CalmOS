@@ -177,13 +177,11 @@ void Halt(void) {
   while (1) __asm__("hlt");
 }
 
-// kernel_bufferの一時領域から開始アドレスと終了アドレスを設定する
-// 全てのLOADセグメントを1つのかたまりとみなして、先頭と末尾のアドレスを求めている
 void CalcLoadAddressRange(Elf64_Ehdr* ehdr, UINT64* first, UINT64* last) {
   Elf64_Phdr* phdr = (Elf64_Phdr*)((UINT64)ehdr + ehdr->e_phoff);
   *first = MAX_UINT64;
   *last = 0;
-  for (Elf64_Half i = 0; i < ehdr->e_phnum; i++) {
+  for (Elf64_Half i = 0; i < ehdr->e_phnum; ++i) {
     if (phdr[i].p_type != PT_LOAD) continue;
     *first = MIN(*first, phdr[i].p_vaddr);
     *last = MAX(*last, phdr[i].p_vaddr + phdr[i].p_memsz);
@@ -192,15 +190,12 @@ void CalcLoadAddressRange(Elf64_Ehdr* ehdr, UINT64* first, UINT64* last) {
 
 void CopyLoadSegments(Elf64_Ehdr* ehdr) {
   Elf64_Phdr* phdr = (Elf64_Phdr*)((UINT64)ehdr + ehdr->e_phoff);
-  for (Elf64_Half i = 0; i < ehdr->e_phnum; i++) {
+  for (Elf64_Half i = 0; i < ehdr->e_phnum; ++i) {
     if (phdr[i].p_type != PT_LOAD) continue;
 
-    // 一時領域からp_vaddrが指定するうメモリ番地へデータをコピーする
-    UINT64 segm_in_file = (UINT64)ehdr + phdr[i].p_offsets;
+    UINT64 segm_in_file = (UINT64)ehdr + phdr[i].p_offset;
     CopyMem((VOID*)phdr[i].p_vaddr, (VOID*)segm_in_file, phdr[i].p_filesz);
 
-    // セグメントのメモリ上のサイズがファイル上のサイズより大きい場合
-    // 残りを0で埋める
     UINTN remain_bytes = phdr[i].p_memsz - phdr[i].p_filesz;
     SetMem((VOID*)(phdr[i].p_vaddr + phdr[i].p_filesz), remain_bytes, 0);
   }
@@ -289,58 +284,42 @@ EFI_STATUS EFIAPI UefiMain(
     Halt();
   }
 
-  /*****************/
-  //カーネルファイルからローダ情報を読み込みその情報からエントリポイントを取得する
-
-  // #@@range_begin(read_kernel)
-  // カーネルファイルの一時保存読み込み処理
   EFI_FILE_INFO* file_info = (EFI_FILE_INFO*)file_info_buffer;
   UINTN kernel_file_size = file_info->FileSize;
 
-  VOID *kernel_buffer;
-  // 一時領域の確保
+  VOID* kernel_buffer;
   status = gBS->AllocatePool(EfiLoaderData, kernel_file_size, &kernel_buffer);
   if (EFI_ERROR(status)) {
-    Print(L"failed to allocate pool: %r", status);
+    Print(L"failed to allocate pool: %r\n", status);
     Halt();
   }
-  // カーネルファイルの内容を一時領域へ読み込む
   status = kernel_file->Read(kernel_file, &kernel_file_size, kernel_buffer);
   if (EFI_ERROR(status)) {
     Print(L"error: %r", status);
     Halt();
   }
-  Print(L"Kernel: 0x%0lx (%lu bytes)\n", kernel_file, kernel_file_size);
-  // #@@range_end(read_kernel)
 
-  // #@@range_begin(alloc_memory)
-  // コピー先メモリー領域の確保
   Elf64_Ehdr* kernel_ehdr = (Elf64_Ehdr*)kernel_buffer;
   UINT64 kernel_first_addr, kernel_last_addr;
   CalcLoadAddressRange(kernel_ehdr, &kernel_first_addr, &kernel_last_addr);
 
   UINTN num_pages = (kernel_last_addr - kernel_first_addr + 0xfff) / 0x1000;
-  status = gBS->AllocatePages(AllocateAddress, EfiLoaderData, num_pages, &kernel_first_addr);
-
+  status = gBS->AllocatePages(AllocateAddress, EfiLoaderData,
+                              num_pages, &kernel_first_addr);
   if (EFI_ERROR(status)) {
-    Print(L"failed to allocate pages: %r", status);
+    Print(L"failed to allocate pages: %r\n", status);
     Halt();
   }
-  // #@@range_end(alloc_memory)
 
-  // #@@range_begin(copy_segments)
-  // 一時領域から
   CopyLoadSegments(kernel_ehdr);
   Print(L"Kernel: 0x%0lx - 0x%0lx\n", kernel_first_addr, kernel_last_addr);
-  
+
   status = gBS->FreePool(kernel_buffer);
   if (EFI_ERROR(status)) {
     Print(L"failed to free pool: %r\n", status);
     Halt();
   }
-  // #@@range_end(copy_segments)
 
-  // #@@range_begin(exit_bs)
   status = gBS->ExitBootServices(image_handle, memmap.map_key);
   if (EFI_ERROR(status)) {
     status = GetMemoryMap(&memmap);
@@ -354,12 +333,9 @@ EFI_STATUS EFIAPI UefiMain(
       Halt();
     }
   }
-  // #@@range_end(exit_bs)
 
   UINT64 entry_addr = *(UINT64*)(kernel_first_addr + 24);
-  /*****************/
 
-  // #@@range_begin(pass_frame_buffer_config)
   struct FrameBufferConfig config = {
     (UINT8*)gop->Mode->FrameBufferBase,
     gop->Mode->Info->PixelsPerScanLine,
@@ -382,7 +358,6 @@ EFI_STATUS EFIAPI UefiMain(
   typedef void __attribute__((sysv_abi)) EntryPointType(const struct FrameBufferConfig*);
   EntryPointType* entry_point = (EntryPointType*)entry_addr;
   entry_point(&config);
-  // #@@range_end(pass_frame_buffer_config)
 
   Print(L"All done\n");
 

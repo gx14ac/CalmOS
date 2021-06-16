@@ -40,7 +40,7 @@ typedef struct {
 typedef struct {
 	Elf64_Word p_type; // PHDR, LOAD等のセグメント種別
 	Elf64_Word p_flags; // フラグ
-	Elf64_Off p_offsets; // オフセット
+	Elf64_Off p_offset; // オフセット
 	Elf64_Addr p_vaddr; // 仮想Addr
 	Elf64_Addr p_paddr;
 	Elf64_Xword p_filesz; // ファイルサイズ
