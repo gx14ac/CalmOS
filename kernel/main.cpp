@@ -2,6 +2,14 @@
 #include <stdint.h>
 #include <stddef.h>
 
+class Base {
+  public:
+    virtual ~Base();
+    void Func();
+    virtual void VFunc();
+    virtual void VFunc2();
+};
+
 struct PixelColor {
   uint8_t r, g, b;
 };
