@@ -1,0 +1,11 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/snt/.ghq/github.com/shintard/CalmOS/kernel'
+clang++ -I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include -O2 --target=x86_64-elf -ffreestanding -fno-exceptions -mno-red-zone -std=c++17 -fno-rtti -c main.cpp
+ 
+clang++ -I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include -O2 --target=x86_64-elf -ffreestanding -fno-exceptions -mno-red-zone -std=c++17 -fno-rtti -c graphics.cpp
+clang++ -I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include -O2 --target=x86_64-elf -ffreestanding -fno-exceptions -mno-red-zone -std=c++17 -fno-rtti -c font.cpp
+ 
+make: Leaving directory `/Users/snt/.ghq/github.com/shintard/CalmOS/kernel'
+ 
+make: *** No rule to make target `hankaku.txt', needed by `hankaku.bin'.
+ 

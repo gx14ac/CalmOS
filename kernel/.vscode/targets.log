@@ -1,0 +1,407 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# This program built for i386-apple-darwin11.3.0
+ 
+
+# Make data base, printed on Fri Jun 25 23:32:34 2021
+
+# Variables
+
+ 
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+__NIX_DARWIN_SET_ENVIRONMENT_DONE = 1
+# environment
+LC_CTYPE = en_US.UTF-8
+# environment
+VSCODE_LOG_NATIVE = false
+# makefile (from `Makefile', line 1)
+TARGET = kernel.elf
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+CPPFLAGS = -I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /Users/snt/.ghq/github.com/shintard/CalmOS/kernel
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"ja","availableLanguages":{},"_languagePackSupport":true}
+# environment
+_ = /usr/bin/make
+# environment
+XDG_CONFIG_DIRS = /Users/snt/.nix-profile/etc/xdg:/run/current-system/sw/etc/xdg:/nix/var/nix/profiles/default/etc/xdg
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# environment
+VSCODE_NODE_CACHED_DATA_DIR = /Users/snt/Library/Application Support/Code/CachedData/507ce72a4466fbb27b715c3722558bb15afa9f48
+# environment
+GO111MODULE = on
+# makefile (from `Makefile', line 4)
+CXXFLAGS = -O2 --target=x86_64-elf -ffreestanding -fno-exceptions -mno-red-zone -std=c++17 -fno-rtti
+# environment
+XDG_DATA_DIRS = /Users/snt/.nix-profile/share:/run/current-system/sw/share:/nix/var/nix/profiles/default/share
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+__CFBundleIdentifier = com.apple.Terminal
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/tz/7wmkb6nx23dct9d9sv0hywvc0000gn/T/vscode-ipc-946abca3-68a0-4340-a9d5-a8510dd53b77.sock
+# environment
+VSCODE_CWD = /Users/snt/.ghq/github.com/shintard/CalmOS/kernel
+# environment
+PATH = /usr/local/Cellar/dosfstools/4.2/sbin:/usr/local/opt/binutils/bin:/usr/local/opt/llvm/bin:/Users/snt/.pyenv/bin:/Users/snt/.pyenv/bin:/Users/snt/google-cloud-sdk/bin:/Users/snt/.nix-profile/bin:/Users/snt/.local/bin:/usr/local/opt/mysql-client/bin:/Users/snt/.nodebrew/current/bin:/Users/snt/.cargo/bin:/Users/snt/.nodebrew/current/bin:/Users/snt/go/bin:/usr/local/opt/go/libexec/bin:/Users/snt/.rbenv/shims:/Users/snt/.rbenv/bin:/Users/snt/.cargo/bin:/Users/snt/.rbenv/shims:/Users/snt/.rbenv/bin:/Users/snt/.cargo/bin:/Users/snt/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/Users/snt/flutter/bin:/Users/snt/flutter/.pub-cache/bin:/path/to/depot_tools
+# environment
+GOROOT = /usr/local/opt/go/libexec
+# environment
+LSCOLORS = cxfxcxdxbxegedabagacad
+# environment
+NIX_USER_PROFILE_DIR = /nix/var/nix/profiles/per-user/snt
+# environment
+GOPATH = /Users/snt/go
+# environment
+LaunchInstanceID = 46B1CA2F-23DD-454A-87E2-E5696F541F50
+# environment
+VSCODE_LOG_STACK = false
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+PYENV_ROOT = /Users/snt/.pyenv
+# makefile (from `Makefile', line 6)
+LDFLAGS = -L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib --entry KernelMain -z norelro --image-base 0x100000 --static -z separate-code
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# environment
+LS_COLORS = di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30
+# environment
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.fuqce4KElu/Listeners
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = /private/tmp/com.apple.launchd.ip7aXnS4Ew/org.macosforge.xquartz:0
+# environment
+NIX_SSL_CERT_FILE = /etc/ssl/certs/ca-certificates.crt
+# environment
+TMUX_PANE = %1
+# environment
+VSCODE_PIPE_LOGGING = true
+# makefile (from `Makefile', line 2)
+OBJS = main.o graphics.o font.o hankaku.o
+# environment
+PWD = /Users/snt/.ghq/github.com/shintard/CalmOS/kernel
+# environment
+GOOGLE_API_KEY = AIzaSyB4jjfxGRg7LsFol1-dZA1hQclU83vyNF8
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
+# environment
+HOME = /Users/snt
+# environment
+GOOGLE_DEFAULT_CLIENT_ID = 809304274719-ju84s31acjpc1aq27sj67hajeac203cc.apps.googleusercontent.com
+# default
+MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
+# environment
+VSCODE_CLI = 1
+# environment
+LOGNAME = snt
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+XPC_FLAGS = 0x0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 4
+# environment
+NIX_PATH = darwin-config=/Users/snt/.nixpkgs/darwin-configuration.nix:/nix/var/nix/profiles/per-user/root/channels:/Users/snt/.nix-defexpr/channels:/Users/snt/.nix-defexpr/channels
+# environment
+NIX_PROFILES = /nix/var/nix/profiles/default /Users/snt/.nix-profile
+# default
+MAKE_VERSION := 3.81
+ 
+# environment
+USER = snt
+# makefile
+.DEFAULT_GOAL := all
+# environment
+TERM_SESSION_ID = 9611E1EB-61A8-4AA1-B766-5BF9F18AD21D
+# environment
+GOOGLE_DEFAULT_CLIENT_SECRET = BPYXRK_Zkha3Inn1YlUNIf97
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
+# environment
+TERM_PROGRAM = tmux
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /var/folders/tz/7wmkb6nx23dct9d9sv0hywvc0000gn/T/
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /Users/snt/Library/Application Support/Code/1.57.1-main.sock
+# environment
+__ETC_ZSHENV_SOURCED = 1
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+TERM_PROGRAM_VERSION = 3.2
+# environment
+XPC_SERVICE_NAME = 0
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+TMUX = /private/tmp/tmux-501/default,932,0
+# automatic
++F = $(notdir $+)
+# environment
+__CF_USER_TEXT_ENCODING = 0x1F5:0x1:0xE
+# default
+MAKEFILES := 
+# environment
+RBENV_SHELL = zsh
+# automatic
+<F = $(notdir $<)
+# environment
+XDG_CONFIG_HOME = /Users/snt/.config
+# environment
+EDITOR = nano
+# environment
+PAGER = less -R
+# environment
+LC_ALL = C
+# environment
+SECURITYSESSIONID = 186bb
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk
+# default
+.INCLUDE_DIRS = /usr/local/include
+# environment
+MAKELEVEL := 0
+# environment
+CLICOLOR = true
+# environment
+LANG = C
+# environment
+TERM = screen-256color
+# environment
+VSCODE_PID = 95058
+# variable set hash-table stats:
+# Load=101/1024=10%, Rehash=0, Collisions=8/135=6%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 16777221, inode 59773431): 17 files, no impossibilities.
+
+# 17 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+%.o: %.cpp Makefile
+#  commands to execute (from `Makefile', line 19):
+	clang++ $(CPPFLAGS) $(CXXFLAGS) -c $<
+	
+
+.%.d: %.cpp
+#  commands to execute (from `Makefile', line 22):
+	clang++ $(CPPFLAGS) $(CXXFLAGS) -MM $< > $@
+	$(eval OBJ = $(<:.cpp=.o))
+	sed -I '' -e 's|$(notdir $(OBJ))|$(OBJ)|' $@
+	
+
+.%.d: %.bin
+#  commands to execute (from `Makefile', line 33):
+	touch $@
+	
+
+# 3 implicit rules, 0 (0.0%) terminal.
+
+# Files
+
+# Not a target:
+hankaku.txt:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+hankaku.bin: hankaku.txt
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 27):
+	../tools/makefont.py -o $@ $<
+	
+
+all: kernel.elf
+#  Phony target (prerequisite of .PHONY).
+#  Command-line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+
+.PHONY: all clean depends
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+ 
+#  Last modified 2021-06-25 23:32:20
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+depends:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 37):
+	$(MAKE) $(DEPENDS)
+	
+
+# Not a target:
+main.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2021-06-25 23:05:11
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+graphics.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+kernel.elf: main.o graphics.o font.o hankaku.o Makefile
+#  Implicit rule search has not been done.
+#  Last modified 2021-06-16 23:38:07
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+#  commands to execute (from `Makefile', line 16):
+	ld.lld $(LDFLAGS) -o kernel.elf $(OBJS)
+	
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 13):
+	rm -rf *.o
+	
+
+main.o: main.cpp Makefile
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `main'
+#  Last modified 2021-06-16 23:38:07
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := main.o
+# automatic
+# % := 
+# automatic
+# * := main
+# automatic
+# + := main.cpp Makefile
+# automatic
+# | := 
+# automatic
+# < := main.cpp
+# automatic
+# ^ := main.cpp Makefile
+# automatic
+# ? := main.cpp Makefile
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/13=8%
+#  commands to execute (from `Makefile', line 19):
+	clang++ $(CPPFLAGS) $(CXXFLAGS) -c $<
+	
+
+# Not a target:
+font.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+hankaku.o: hankaku.bin
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 30):
+	objcopy -I binary -O elf64-x86-64 -B i386:x86-64 $< $@
+	
+
+# files hash-table stats:
+# Load=15/1024=1%, Rehash=0, Collisions=3/46=7%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+
+# Finished Make data base on Fri Jun 25 23:32:34 2021
+
+ 
