@@ -1,5 +1,6 @@
 #include <stddef.h>
 #include <stdint.h>
+#include <stdio.h>
 
 #include "font.hpp"
 #include "frame_buffer_config.hpp"
@@ -37,13 +38,17 @@ extern "C" void KernelMain(const FrameBufferConfig& frame_buffer_config) {
 
   // #@@range_begin(write_fonts)
   int i = 0;
-  for (char c = '!'; c <= '~'; ++c, ++i) {
+  for (char c = '!'; c <= '~'; c++, i++) {
     WriteAscii(*pixel_writer, 8 * i, 50, c, {0, 0, 0});
   }
+  WriteString(*pixel_writer, 0, 66, "Hello World", {0, 0, 0});
   // #@@range_end(write_fonts)
+
+  // #@@range_begin(sprintf)
+  char buf[128];
+  sprintf(buf, "1 + 2 = %d", 1 + 2);
+  WriteString(*pixel_writer, 0, 82, buf, {0, 0, 0});
+  // #@@range_end(sprintf)
+
   while (1) __asm__("hlt");
 }
-
-// extern "C" void __cxa_pure_virtual() {
-//   while (1) __asm__("hlt");
-// }

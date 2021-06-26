@@ -1,7 +1,8 @@
 TARGET = kernel.elf
-OBJS = main.o graphics.o font.o hankaku.o
+OBJS = main.o graphics.o font.o hankaku.o newlib_support.o
 DEPENDS = $(join $(dir $(OBJS)),$(addprefix .,$(notdir $(OBJS:.o=.d))))
 
+CFLAGS += -O2 --target=x86_64-elf -ffreestanding -fno-exceptions -mno-red-zone
 CXXFLAGS += -O2 --target=x86_64-elf -ffreestanding -fno-exceptions -mno-red-zone \
 			-std=c++17 -fno-rtti
 LDFLAGS += --entry KernelMain -z norelro --image-base 0x100000 --static -z separate-code
@@ -22,6 +23,14 @@ kernel.elf: $(OBJS) Makefile
 .%.d: %.cpp
 	clang++ $(CPPFLAGS) $(CXXFLAGS) -MM $< > $@
 	$(eval OBJ = $(<:.cpp=.o))
+	sed -I '' -e 's|$(notdir $(OBJ))|$(OBJ)|' $@
+
+%.o: %.c Makefile
+	clang $(CPPFLAGS) $(CFLAGS) -c $<
+
+.%.d: %.c
+	clang $(CPPFLAGS) $(CFLAGS) -MM $< > $@
+	$(eval OBJ = $(<:.c=.o))
 	sed -I '' -e 's|$(notdir $(OBJ))|$(OBJ)|' $@
 
 hankaku.bin: hankaku.txt
